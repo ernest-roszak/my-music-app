@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from 'assets/styles/globalStyles';
+import { theme } from 'assets/styles/theme';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
+const Root = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Switch>
+          <Route path="/"></Route>
+        </Switch>
+      </ThemeProvider>
+    </Router>
   );
-}
+};
 
-export default App;
+export default Root;
