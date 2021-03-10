@@ -5,9 +5,7 @@ import { theme } from 'assets/styles/theme';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SongPlayer from 'components/SongPlayer/SongPlayer';
 import SongsList from 'data/SongList';
-import Heading from 'components/Heading';
-import SongListItem from 'components/SongListItem/SongListItem';
-import { List, Wrapper } from './Root.styles';
+import SongList from 'components/SongList/SongList';
 
 const Root = () => {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -25,14 +23,7 @@ const Root = () => {
         <Switch>
           <Route path="/">
             <SongPlayer song={currentSong} />
-            <Wrapper>
-              <Heading title="Songs" />
-              <List>
-                {SongsList.map((song) => (
-                  <SongListItem key={song.audioUrl} song={song} isCurrent={currentSong.audioUrl === song.audioUrl} onSelect={handleSelectSong} />
-                ))}
-              </List>
-            </Wrapper>
+            <SongList handleSelectSong={handleSelectSong} currentSong={currentSong} />
           </Route>
         </Switch>
       </ThemeProvider>
