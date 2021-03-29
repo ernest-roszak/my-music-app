@@ -31,7 +31,7 @@ Project is created with:
 To run this project, install it locally using npm:
 
 ```
-$ cd music-player
+$ cd my-music-app
 $ npm install
 $ npm start
 ```
